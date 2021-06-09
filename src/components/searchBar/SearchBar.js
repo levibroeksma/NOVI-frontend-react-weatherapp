@@ -1,12 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SearchBar.css';
 
-function SearchBar() {
+
+function SearchBar({setLocationHandler}) {
+
+    const [query, setQuery] = useState('');
+    const handleClick = () => {
+        setLocationHandler(query)
+    };
+    const keyPressCheck = (e) => {
+        if (e.key === "Enter") {
+            setLocationHandler(query)
+        }
+    }
+
   return (
     <span className="searchbar">
       <input
         type="text"
         name="search"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={keyPressCheck}
+        onClick={handleClick}
         placeholder="Zoek een stad in Nederland"
       />
 
