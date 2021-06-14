@@ -22,11 +22,10 @@ function SearchBar({setLocationHandler}) {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={keyPressCheck}
-        onClick={handleClick}
         placeholder="Zoek een stad in Nederland"
       />
 
-      <button type="button">
+      <button type="button" onClick={handleClick}>
         Zoek
       </button>
     </span>
